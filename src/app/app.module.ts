@@ -16,7 +16,13 @@ import { InputMaskModule } from 'primeng/inputmask'
 import {DropdownModule} from 'primeng/dropdown';
 import { MultiSelectModule } from 'primeng/multiselect'
 import {TableModule} from 'primeng/table';
-
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import { ToastComponent } from './components/common/toast/toast.component';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import {ToastModule} from 'primeng/toast';
+import { ConfigService } from './services/config.service';
+import { StudiesComponent } from './components/studies/studies.component';
+import {AccordionModule} from 'primeng/accordion';
 
 @NgModule({
   declarations: [
@@ -24,7 +30,9 @@ import {TableModule} from 'primeng/table';
     HomeComponent,
     ImageButtonComponent,
     PersonsComponent,
-    HeaderComponent
+    HeaderComponent,
+    ToastComponent,
+    StudiesComponent
   ],
   imports: [
     FontAwesomeModule,
@@ -37,9 +45,12 @@ import {TableModule} from 'primeng/table';
     InputMaskModule,
     DropdownModule,
     MultiSelectModule,
-    TableModule
-  ],
-  providers: [],
+    TableModule,
+    ConfirmDialogModule,
+    ToastModule,
+    AccordionModule
+   ],
+  providers: [ConfigService, ConfirmationService, MessageService, ToastComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
